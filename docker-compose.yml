@@ -1,0 +1,56 @@
+version: "3.9"
+
+services:
+  postgres:
+    image: postgres:16-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: portfolio
+      POSTGRES_PASSWORD: portfolio
+      POSTGRES_DB: portfolio
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U portfolio"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  backend:
+    build: ./backend
+    restart: unless-stopped
+    depends_on:
+      postgres:
+        condition: service_healthy
+    environment:
+      PORT: 4000
+      NODE_ENV: production
+      FRONTEND_URL: http://localhost:3000
+      DATABASE_URL: postgresql://portfolio:portfolio@postgres:5432/portfolio?schema=public
+      JWT_SECRET: ${JWT_SECRET:-change_me_now}
+      JWT_EXPIRES_IN: 7d
+      ADMIN_EMAIL: ${ADMIN_EMAIL:-}
+      ADMIN_PASSWORD: ${ADMIN_PASSWORD:-}
+      SMTP_HOST: ${SMTP_HOST:-}
+      SMTP_PORT: ${SMTP_PORT:-587}
+      SMTP_USER: ${SMTP_USER:-}
+      SMTP_PASS: ${SMTP_PASS:-}
+      CONTACT_RECEIVER_EMAIL: ${CONTACT_RECEIVER_EMAIL:-}
+    ports:
+      - "4000:4000"
+
+  frontend:
+    build:
+      context: ./frontend
+      args:
+        NEXT_PUBLIC_API_URL: ${NEXT_PUBLIC_API_URL:-http://localhost:4000}
+    restart: unless-stopped
+    depends_on:
+      - backend
+    ports:
+      - "3000:3000"
+
+volumes:
+  pgdata:

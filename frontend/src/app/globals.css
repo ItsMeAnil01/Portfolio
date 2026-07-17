@@ -1,0 +1,182 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─── Keyframes (must live here so they work in inline style="" props) ─── */
+/* Tailwind only emits @keyframes when the matching animate-* class is used  */
+/* in markup. Inline style={{ animation: "fadeUp …" }} bypasses that scan.   */
+
+@keyframes fadeUp {
+  0%   { opacity: 0; transform: translateY(24px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes glowPulse {
+  0%, 100% { opacity: 0.5; transform: scale(1); }
+  50%       { opacity: 0.8; transform: scale(1.08); }
+}
+
+@keyframes slideIn {
+  0%   { opacity: 0; transform: translateX(-12px); }
+  100% { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes shimmer {
+  0%   { background-position: -400px 0; }
+  100% { background-position:  400px 0; }
+}
+
+:root {
+  /* Light Theme (Default, if no data-theme/preference) */
+  --color-ink: #fcfcfc;
+  --color-panel: #f3f4f6;
+  --color-panelBorder: #e5e7eb;
+  --color-signal: #0b9e7b;
+  --color-signal-rgb: 11, 158, 123;
+  --color-alert: #dc2626;
+  --color-paper: #111827;
+  --color-muted: #4b5563;
+  --color-skeleton-base: #e5e7eb;
+  --color-skeleton-shimmer: #f3f4f6;
+}
+
+[data-theme="dark"] {
+  /* Dark Theme */
+  --color-ink: #0b0e14;
+  --color-panel: #12161f;
+  --color-panelBorder: #1f2530;
+  --color-signal: #00d9a3;
+  --color-signal-rgb: 0, 217, 163;
+  --color-alert: #ff6b5c;
+  --color-paper: #e8eaed;
+  --color-muted: #8b93a7;
+  --color-skeleton-base: #12161f;
+  --color-skeleton-shimmer: #1f2530;
+}
+
+/* Default to dark mode if user has system dark mode preference or no explicit choice */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --color-ink: #0b0e14;
+    --color-panel: #12161f;
+    --color-panelBorder: #1f2530;
+    --color-signal: #00d9a3;
+    --color-signal-rgb: 0, 217, 163;
+    --color-alert: #ff6b5c;
+    --color-paper: #e8eaed;
+    --color-muted: #8b93a7;
+    --color-skeleton-base: #12161f;
+    --color-skeleton-shimmer: #1f2530;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-ink);
+  color: var(--color-paper);
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+::selection {
+  background-color: rgba(var(--color-signal-rgb), 0.22);
+}
+
+/* ─── Custom scrollbar ─────────────────────────────────── */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-ink);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-panelBorder);
+  border-radius: 3px;
+  transition: background-color 0.3s ease;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-signal);
+}
+
+/* ─── Focus rings ──────────────────────────────────────── */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid var(--color-signal);
+  outline-offset: 2px;
+}
+
+/* ─── Reduced motion ───────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ─── Grid background ──────────────────────────────────── */
+.grid-fade {
+  background-image:
+    linear-gradient(to right, var(--color-panelBorder) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--color-panelBorder) 1px, transparent 1px);
+  background-size: 48px 48px;
+  mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, black 40%, transparent 100%);
+  transition: background-image 0.3s ease;
+}
+
+/* ─── Scroll-reveal ────────────────────────────────────── */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.65s ease, transform 0.65s ease;
+}
+
+.reveal.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ─── Skeleton shimmer ─────────────────────────────────── */
+.skeleton {
+  background: linear-gradient(
+    90deg,
+    var(--color-skeleton-base) 25%,
+    var(--color-skeleton-shimmer) 50%,
+    var(--color-skeleton-base) 75%
+  );
+  background-size: 400px 100%;
+  animation: shimmer 1.8s linear infinite;
+}
+
+/* ─── Cursor glow & Custom cursor ──────────────────────── */
+.custom-cursor {
+  will-change: transform;
+}
+
+#cursor-glow {
+  will-change: transform;
+}
+
+/* Hide default cursor on desktop when hovering to show the custom one */
+@media (hover: hover) and (pointer: fine) {
+  html, body, a, button, select, input, textarea, [role="button"] {
+    cursor: none !important;
+  }
+}
+
+/* Fallback: Hide custom cursor on mobile/touch interfaces */
+@media (hover: none) and (pointer: coarse) {
+  .custom-cursor {
+    display: none !important;
+  }
+}
+
+
+
