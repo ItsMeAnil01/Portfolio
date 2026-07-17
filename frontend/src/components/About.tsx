@@ -12,7 +12,7 @@ export default function About() {
           </p>
           <p>
             On the engineering side, I work end-to-end across the MERN stack and Next.js —
-            REST APIs, JWT auth, PostgreSQL, MVC architecture — and deploy what I build on
+            REST APIs, JWT auth, MongoDB, MVC architecture — and deploy what I build on
             AWS with Docker and Kubernetes. I&apos;ve solved 200+ problems on LeetCode, not for
             the badge, but because clean problem decomposition carries directly into
             production code.

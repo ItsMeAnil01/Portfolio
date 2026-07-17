@@ -1,7 +1,7 @@
 {
   "name": "portfolio-backend",
   "version": "1.0.0",
-  "description": "Backend API for Anil's portfolio - Express + TypeScript + Prisma + PostgreSQL",
+  "description": "Backend API for Anil's portfolio - Express + TypeScript + Prisma + MongoDB",
   "main": "dist/index.js",
   "scripts": {
     "dev": "tsx watch src/index.ts",

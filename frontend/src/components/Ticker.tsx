@@ -2,7 +2,7 @@ const TICKER_ITEMS = [
   { symbol: "MERN", delta: "+" },
   { symbol: "NEXT.JS", delta: "+" },
   { symbol: "TYPESCRIPT", delta: "+" },
-  { symbol: "POSTGRESQL", delta: "+" },
+  { symbol: "MONGODB", delta: "+" },
   { symbol: "AWS", delta: "+" },
   { symbol: "DOCKER", delta: "+" },
   { symbol: "KUBERNETES", delta: "+" },
