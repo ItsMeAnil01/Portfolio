@@ -57,7 +57,7 @@ export default function ContactForm() {
             />
           </svg>
         </div>
-        <p className="font-mono text-sm text-signal">MESSAGE SENT — ORDER FILLED</p>
+        <p className="font-mono text-sm text-signal">MESSAGE SENT</p>
         <p className="mt-2 font-body text-sm text-muted">
           Thanks for reaching out. I&apos;ll reply as soon as I can.
         </p>

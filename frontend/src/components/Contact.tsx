@@ -8,7 +8,7 @@ export default function Contact() {
           // contact
         </div>
         <h2 className="mb-3 font-display text-3xl font-medium text-paper">
-          Open an order.
+          Contact.
         </h2>
         <p className="mb-8 font-body text-sm text-muted">
           Whether it's a role, a project, or a question about a strategy — drop a message
