@@ -60,7 +60,7 @@ export default function Terminal({ projects, skills }: TerminalProps) {
           break;
 
         case "about":
-          output = `Anil — Full-Stack Engineer\n--------------------------\nThird-year Computer Science Engineering student at Chitkara University, India.\nFocused on building clean REST APIs, JWT authentication setups, Next.js user interfaces,\nand deploying workloads to AWS with Docker and Kubernetes.`;
+          output = `Anil — Full-Stack Engineer\n--------------------------\nFinal-year Computer Science Engineering student at Chitkara University, India.\nFocused on building clean REST APIs, JWT authentication setups, Next.js user interfaces,\nand deploying workloads to AWS with Docker and Kubernetes.`;
           setTimeout(() => {
             document.getElementById("about")?.scrollIntoView({ behavior: "smooth" });
           }, 120);

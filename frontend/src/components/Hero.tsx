@@ -57,7 +57,7 @@ export default function Hero() {
           className="mt-6 max-w-xl font-body text-base leading-relaxed text-muted md:text-lg"
           style={{ animation: "fadeUp 0.6s ease 0.65s forwards", opacity: 0 }}
         >
-          Third-year CSE engineer building production-grade MERN &amp; Next.js
+          Final-year CSE engineer building production-grade MERN &amp; Next.js
           applications — from REST APIs and JWT auth to cloud deployments on
           AWS with Docker and Kubernetes. Clean code, fast delivery, no shortcuts.
         </p>

@@ -6,7 +6,7 @@ export default function About() {
 
         <div className="space-y-5 font-body text-base leading-relaxed text-muted md:text-lg">
           <p>
-            I&apos;m a third-year Computer Science Engineering student at Chitkara University,
+            I&apos;m a final-year Computer Science Engineering student at Chitkara University,
             Himachal Pradesh — spending most of my time building production-grade web
             applications across the full stack.
           </p>
