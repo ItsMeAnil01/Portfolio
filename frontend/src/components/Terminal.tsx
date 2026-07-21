@@ -55,7 +55,7 @@ export default function Terminal({ projects, skills }: TerminalProps) {
 
       switch (rootCommand) {
         case "help":
-          output = `Available commands:\n  <span class="text-signal">about</span>      — View my profile biography\n  <span class="text-signal">skills</span>     — List categorized tech stack skills\n  <span class="text-signal">projects</span>   — View summary of seeded projects\n  <span class="text-signal">contact</span>    — Get email and social contact links\n  <span class="text-signal">theme</span>      — Toggle theme (Usage: <span class="text-muted">theme light</span> or <span class="text-muted">theme dark</span>)\n  <span class="text-signal">login</span>      — Open the Admin login portal\n  <span class="text-signal">clear</span>      — Clear the screen command history`;
+          output = `Available commands:\n  <span class="text-signal">about</span>      — View my profile biography\n  <span class="text-signal">skills</span>     — List categorized tech stack skills\n  <span class="text-signal">projects</span>   — View summary of seeded projects\n  <span class="text-signal">contact</span>    — Get email and social contact links\n  <span class="text-signal">theme</span>      — Toggle theme (Usage: <span class="text-muted">theme light</span> or <span class="text-muted">theme dark</span>)\n  <span class="text-signal">clear</span>      — Clear the screen command history`;
           isHtml = true;
           break;
 
@@ -113,13 +113,6 @@ export default function Terminal({ projects, skills }: TerminalProps) {
             output = `Usage: <span class="text-alert font-mono">theme light</span> or <span class="text-alert font-mono">theme dark</span>.`;
           }
           isHtml = true;
-          break;
-
-        case "login":
-          output = `Redirecting to Admin Portal...`;
-          setTimeout(() => {
-            window.location.href = "/admin/login";
-          }, 800);
           break;
 
         case "clear":

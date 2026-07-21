@@ -20,12 +20,6 @@ export default function Footer() {
           >
             LinkedIn
           </a>
-          <a
-            href="/admin/login"
-            className="hover:text-signal opacity-60 hover:opacity-100 transition-opacity"
-          >
-            Admin
-          </a>
         </div>
       </div>
     </footer>
