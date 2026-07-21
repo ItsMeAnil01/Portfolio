@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Space_Grotesk, Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
+import CursorGlow from "@/components/CursorGlow";
 
 const display = Space_Grotesk({
   subsets: ["latin"],
@@ -48,7 +49,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           }}
         />
       </head>
-      <body className="font-body antialiased">{children}</body>
+      <body className="font-body antialiased">
+        <CursorGlow />
+        {children}
+      </body>
     </html>
   );
 }

@@ -8,7 +8,6 @@ import GitHubStrip from "@/components/GitHubStrip";
 import Projects from "@/components/Projects";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
-import CursorGlow from "@/components/CursorGlow";
 import ScrollReveal from "@/components/ScrollReveal";
 import Terminal from "@/components/Terminal";
 import { fetchProjects, fetchSkills } from "@/lib/api";
@@ -28,7 +27,6 @@ export default async function Home() {
 
   return (
     <main className="min-h-screen bg-ink">
-      <CursorGlow />
       <ScrollReveal />
       <Navbar />
 
